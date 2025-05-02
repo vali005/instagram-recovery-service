@@ -36,7 +36,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
-                  <p className="font-medium">vali_vali05@mail.ru</p>
+                  <p className="font-medium">gadjarovkurban@gmail.com</p>
                 </div>
               </div>
               
@@ -63,7 +63,7 @@ const ContactSection = () => {
                   <Icon name="Phone" className="h-5 w-5" />
                 </Button>
                 <Button variant="outline" size="icon" className="rounded-full"
-                  onClick={() => window.open('mailto:vali_vali05@mail.ru')}>
+                  onClick={() => window.open('mailto:gadjarovkurban@gmail.com')}>
                   <Icon name="Mail" className="h-5 w-5" />
                 </Button>
               </div>

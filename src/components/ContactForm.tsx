@@ -17,7 +17,6 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import Icon from '@/components/ui/icon';
-import { sendEmailNotification } from './mailService';
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -48,40 +47,78 @@ const ContactForm = () => {
     setIsSubmitting(true);
     
     try {
-      // Отправляем данные формы на реальный сервис отправки писем
-      const response = await fetch("https://formsubmit.co/ajax/vali_vali05@mail.ru", {
-        method: "POST",
-        headers: { 
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          name: values.name,
-          contact: values.contact,
-          message: values.message,
-          _subject: "Новая заявка с сайта InstaРешения",
-          _template: "table"
-        })
+      // Прямая отправка формы через FormSubmit.co
+      // Использование простой formData для максимальной надежности
+      const formData = new FormData();
+      formData.append('name', values.name);
+      formData.append('contact', values.contact);
+      formData.append('message', values.message);
+      formData.append('_subject', 'Новая заявка с сайта InstaРешения');
+      
+      const response = await fetch('https://formsubmit.co/gadjarovkurban@gmail.com', {
+        method: 'POST',
+        body: formData,
       });
       
-      const result = await response.json();
-      
-      if (result.success) {
+      if (response.ok) {
         toast({
           title: "Заявка отправлена",
           description: "Мы свяжемся с вами в ближайшее время",
         });
         form.reset();
       } else {
-        throw new Error("Ошибка при отправке");
+        throw new Error('Ошибка отправки');
       }
     } catch (error) {
-      console.error("Ошибка отправки:", error);
-      toast({
-        title: "Ошибка отправки",
-        description: "Пожалуйста, свяжитесь с нами напрямую по контактам",
-        variant: "destructive"
-      });
+      console.error('Ошибка отправки:', error);
+      
+      // Если API запрос не сработал, пробуем альтернативный подход через HTML форму
+      const htmlForm = document.createElement('form');
+      htmlForm.method = 'POST';
+      htmlForm.action = 'https://formsubmit.co/gadjarovkurban@gmail.com';
+      htmlForm.style.display = 'none';
+      
+      // Добавляем поля формы
+      const nameInput = document.createElement('input');
+      nameInput.name = 'name';
+      nameInput.value = values.name;
+      
+      const contactInput = document.createElement('input');
+      contactInput.name = 'contact';
+      contactInput.value = values.contact;
+      
+      const messageInput = document.createElement('input');
+      messageInput.name = 'message';
+      messageInput.value = values.message;
+      
+      const subjectInput = document.createElement('input');
+      subjectInput.name = '_subject';
+      subjectInput.value = 'Новая заявка с сайта InstaРешения';
+      
+      const captchaInput = document.createElement('input');
+      captchaInput.type = 'hidden';
+      captchaInput.name = '_captcha';
+      captchaInput.value = 'false';
+      
+      // Добавляем все поля в форму
+      htmlForm.appendChild(nameInput);
+      htmlForm.appendChild(contactInput);
+      htmlForm.appendChild(messageInput);
+      htmlForm.appendChild(subjectInput);
+      htmlForm.appendChild(captchaInput);
+      
+      // Добавляем форму на страницу и отправляем
+      document.body.appendChild(htmlForm);
+      htmlForm.submit();
+      
+      // Сообщение для пользователя выводим только если не произошел редирект
+      setTimeout(() => {
+        toast({
+          title: "Форма отправлена",
+          description: "Спасибо за вашу заявку",
+        });
+        form.reset();
+      }, 1000);
     } finally {
       setIsSubmitting(false);
     }
@@ -90,9 +127,6 @@ const ContactForm = () => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        <input type="hidden" name="_next" value={window.location.href} />
-        <input type="hidden" name="_captcha" value="false" />
-        
         <FormField
           control={form.control}
           name="name"
@@ -148,7 +182,7 @@ const ContactForm = () => {
         </Button>
         <p className="text-xs text-muted-foreground text-center mt-2">
           Нажимая кнопку, вы соглашаетесь на обработку персональных данных. 
-          Заявка будет отправлена на почту vali_vali05@mail.ru
+          Заявка будет отправлена на почту gadjarovkurban@gmail.com
         </p>
       </form>
     </Form>

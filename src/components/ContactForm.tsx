@@ -17,6 +17,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import Icon from '@/components/ui/icon';
+import { sendEmailNotification } from './mailService';
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -43,40 +44,55 @@ const ContactForm = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
     
-    // Эмуляция отправки формы на email
-    // В реальном проекте здесь будет запрос к бэкенду для отправки email
-    setTimeout(() => {
-      // Подготовка данных для отправки на почту
-      const emailContent = `
-        Новая заявка с сайта:
-        Имя: ${values.name}
-        Контакт: ${values.contact}
-        Сообщение: ${values.message}
-      `;
-      
-      // В реальном проекте здесь была бы отправка emailContent на vali_vali05@mail.ru
-      console.log('Отправка заявки на vali_vali05@mail.ru:', emailContent);
-      
-      toast({
-        title: "Заявка отправлена",
-        description: "Мы свяжемся с вами в ближайшее время",
+    try {
+      // Отправляем данные формы на реальный сервис отправки писем
+      const response = await fetch("https://formsubmit.co/ajax/vali_vali05@mail.ru", {
+        method: "POST",
+        headers: { 
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          name: values.name,
+          contact: values.contact,
+          message: values.message,
+          _subject: "Новая заявка с сайта InstaРешения",
+          _template: "table"
+        })
       });
       
-      // Данные для отладки в консоли
-      console.log('Отправлено на email: vali_vali05@mail.ru');
-      console.log('Данные формы:', values);
+      const result = await response.json();
       
-      form.reset();
+      if (result.success) {
+        toast({
+          title: "Заявка отправлена",
+          description: "Мы свяжемся с вами в ближайшее время",
+        });
+        form.reset();
+      } else {
+        throw new Error("Ошибка при отправке");
+      }
+    } catch (error) {
+      console.error("Ошибка отправки:", error);
+      toast({
+        title: "Ошибка отправки",
+        description: "Пожалуйста, свяжитесь с нами напрямую по контактам",
+        variant: "destructive"
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   }
 
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <input type="hidden" name="_next" value={window.location.href} />
+        <input type="hidden" name="_captcha" value="false" />
+        
         <FormField
           control={form.control}
           name="name"

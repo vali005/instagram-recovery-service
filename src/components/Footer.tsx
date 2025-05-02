@@ -19,6 +19,9 @@ const Footer = () => {
           </p>
           
           <div className="flex gap-4 text-muted-foreground">
+            <a href="https://www.instagram.com/ziyava_unlocking" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+              <Icon name="Instagram" className="h-5 w-5" />
+            </a>
             <a href="mailto:vali_vali05@mail.ru" className="hover:text-primary transition-colors">
               <Icon name="Mail" className="h-5 w-5" />
             </a>

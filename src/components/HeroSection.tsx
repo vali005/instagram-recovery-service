@@ -10,6 +10,10 @@ const HeroSection = () => {
       contactSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
+  
+  const openInstagram = () => {
+    window.open('https://www.instagram.com/ziyava_unlocking', '_blank');
+  };
 
   return (
     <section className="py-12 md:py-20 px-4 bg-gradient-to-br from-accent to-background relative overflow-hidden">
@@ -35,9 +39,9 @@ const HeroSection = () => {
               <Icon name="ArrowRight" className="h-4 w-4" />
             </Button>
             
-            <Button onClick={scrollToContact} variant="outline" size="lg" className="gap-2">
-              <Icon name="MessageCircle" className="h-4 w-4" />
-              Написать мне
+            <Button onClick={openInstagram} variant="outline" size="lg" className="gap-2">
+              <Icon name="Instagram" className="h-4 w-4" />
+              Instagram
             </Button>
           </div>
           

@@ -22,6 +22,16 @@ const ContactSection = () => {
               
               <div className="flex items-center gap-4">
                 <div className="bg-primary/10 p-3 rounded-full">
+                  <Icon name="Instagram" className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">Instagram</p>
+                  <a href="https://www.instagram.com/ziyava_unlocking" target="_blank" rel="noopener noreferrer" className="font-medium hover:text-primary transition-colors">@ziyava_unlocking</a>
+                </div>
+              </div>
+              
+              <div className="flex items-center gap-4">
+                <div className="bg-primary/10 p-3 rounded-full">
                   <Icon name="Mail" className="h-5 w-5 text-primary" />
                 </div>
                 <div>
@@ -45,7 +55,7 @@ const ContactSection = () => {
               <h3 className="text-xl font-semibold">Свяжитесь напрямую</h3>
               <div className="flex gap-3">
                 <Button variant="outline" size="icon" className="rounded-full" 
-                  onClick={() => window.open('https://instagram.com', '_blank')}>
+                  onClick={() => window.open('https://www.instagram.com/ziyava_unlocking', '_blank')}>
                   <Icon name="Instagram" className="h-5 w-5" />
                 </Button>
                 <Button variant="outline" size="icon" className="rounded-full"

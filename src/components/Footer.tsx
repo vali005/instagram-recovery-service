@@ -19,11 +19,11 @@ const Footer = () => {
           </p>
           
           <div className="flex gap-4 text-muted-foreground">
-            <a href="#" className="hover:text-primary transition-colors">
-              <Icon name="Instagram" className="h-5 w-5" />
+            <a href="mailto:vali_vali05@mail.ru" className="hover:text-primary transition-colors">
+              <Icon name="Mail" className="h-5 w-5" />
             </a>
-            <a href="#" className="hover:text-primary transition-colors">
-              <Icon name="MessageCircle" className="h-5 w-5" />
+            <a href="tel:+79884306315" className="hover:text-primary transition-colors">
+              <Icon name="Phone" className="h-5 w-5" />
             </a>
           </div>
         </div>

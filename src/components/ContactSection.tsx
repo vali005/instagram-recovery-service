@@ -22,11 +22,11 @@ const ContactSection = () => {
               
               <div className="flex items-center gap-4">
                 <div className="bg-primary/10 p-3 rounded-full">
-                  <Icon name="MessageCircle" className="h-5 w-5 text-primary" />
+                  <Icon name="Mail" className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Telegram</p>
-                  <p className="font-medium">@username</p>
+                  <p className="text-sm text-muted-foreground">Email</p>
+                  <p className="font-medium">vali_vali05@mail.ru</p>
                 </div>
               </div>
               
@@ -36,7 +36,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Телефон</p>
-                  <p className="font-medium">+7 (XXX) XXX-XX-XX</p>
+                  <p className="font-medium">+7 988 430-63-15</p>
                 </div>
               </div>
             </div>
@@ -44,14 +44,17 @@ const ContactSection = () => {
             <div className="space-y-4">
               <h3 className="text-xl font-semibold">Свяжитесь напрямую</h3>
               <div className="flex gap-3">
-                <Button variant="outline" size="icon" className="rounded-full">
+                <Button variant="outline" size="icon" className="rounded-full" 
+                  onClick={() => window.open('https://instagram.com', '_blank')}>
                   <Icon name="Instagram" className="h-5 w-5" />
                 </Button>
-                <Button variant="outline" size="icon" className="rounded-full">
-                  <Icon name="MessageCircle" className="h-5 w-5" />
-                </Button>
-                <Button variant="outline" size="icon" className="rounded-full">
+                <Button variant="outline" size="icon" className="rounded-full"
+                  onClick={() => window.open('tel:+79884306315')}>
                   <Icon name="Phone" className="h-5 w-5" />
+                </Button>
+                <Button variant="outline" size="icon" className="rounded-full"
+                  onClick={() => window.open('mailto:vali_vali05@mail.ru')}>
+                  <Icon name="Mail" className="h-5 w-5" />
                 </Button>
               </div>
             </div>

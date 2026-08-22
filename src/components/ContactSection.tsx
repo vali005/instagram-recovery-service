@@ -71,7 +71,7 @@ const ContactSection = () => {
               <div className="flex items-start gap-3">
                 <Icon name="Lock" className="h-4 w-4 text-primary mt-0.5 shrink-0" />
                 <p className="text-sm text-muted-foreground">
-                  Обращение видно только мне. Данные из формы используются исключительно для связи по вашей заявке.
+                  Данные из формы используются только для обработки вашей заявки и доставляются на мою почту через сервис отправки форм.
                 </p>
               </div>
               <div className="flex items-start gap-3">

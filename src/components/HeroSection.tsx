@@ -49,7 +49,7 @@ const HeroSection = () => {
           <ul className="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-3 text-sm text-muted-foreground pt-2 max-w-xl mx-auto md:mx-0">
             <li className="flex items-center justify-center md:justify-start gap-2">
               <Icon name="Lock" className="h-4 w-4 text-primary shrink-0" />
-              Данные не передаются третьим лицам
+              Заявка с формы приходит мне на почту
             </li>
             <li className="flex items-center justify-center md:justify-start gap-2">
               <Icon name="ListChecks" className="h-4 w-4 text-primary shrink-0" />

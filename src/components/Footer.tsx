@@ -25,7 +25,7 @@ const Footer = () => {
             <a href="https://www.instagram.com/ziyava_unlocking" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-primary transition-colors">
               <Icon name="Instagram" className="h-5 w-5" />
             </a>
-            <a href="mailto:vali_vali05@mail.ru" aria-label="Email" className="hover:text-primary transition-colors">
+            <a href="mailto:gadjarovkurban@gmail.com" aria-label="Email" className="hover:text-primary transition-colors">
               <Icon name="Mail" className="h-5 w-5" />
             </a>
             <a href="tel:+79884306315" aria-label="Телефон" className="hover:text-primary transition-colors">

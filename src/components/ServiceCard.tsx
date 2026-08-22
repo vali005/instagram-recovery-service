@@ -11,22 +11,27 @@ interface ServiceCardProps {
   className?: string;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ 
-  title, 
-  description, 
+const ServiceCard: React.FC<ServiceCardProps> = ({
+  title,
+  description,
   icon,
   className
 }) => {
   return (
-    <Card className={cn("transition-all duration-300 hover:shadow-lg h-full", className)}>
-      <CardHeader className="flex items-center gap-2">
-        <div className="rounded-full bg-primary/10 p-3 mb-2">
-          <Icon name={icon} className="h-6 w-6 text-primary" />
+    <Card
+      className={cn(
+        "group border-border/70 shadow-card hover:shadow-card-hover hover:border-primary/40 transition-all duration-300 h-full",
+        className
+      )}
+    >
+      <CardHeader className="flex flex-col items-start gap-3 space-y-0">
+        <div className="rounded-xl bg-primary/10 p-3 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+          <Icon name={icon} className="h-6 w-6" />
         </div>
-        <CardTitle className="text-xl font-medium">{title}</CardTitle>
+        <CardTitle className="text-lg font-semibold leading-snug">{title}</CardTitle>
       </CardHeader>
       <CardContent>
-        <CardDescription className="text-base">{description}</CardDescription>
+        <CardDescription className="text-sm leading-relaxed">{description}</CardDescription>
       </CardContent>
     </Card>
   );

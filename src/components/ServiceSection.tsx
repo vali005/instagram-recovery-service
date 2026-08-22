@@ -37,16 +37,21 @@ const services = [
 
 const ServiceSection = () => {
   return (
-    <section className="py-16 px-4 bg-background" id="services">
+    <section className="py-16 md:py-24 px-4 sm:px-6 bg-background" id="services">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Мои услуги</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Предлагаю профессиональную помощь в восстановлении и разблокировке аккаунтов Instagram, а также решение других проблем с вашими аккаунтами.
+        <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+          <span className="text-sm font-semibold uppercase tracking-widest text-primary">
+            Услуги
+          </span>
+          <h2 className="mt-3 text-3xl md:text-4xl font-bold">
+            Чем я могу помочь
+          </h2>
+          <p className="mt-4 text-muted-foreground leading-relaxed">
+            Работаю с разными ситуациями: от блокировок и взломов до потери доступа и лишних старых профилей.
           </p>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((service, index) => (
             <ServiceCard
               key={index}

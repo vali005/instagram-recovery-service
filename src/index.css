@@ -4,27 +4,72 @@
 @tailwind utilities;
 
 :root {
-  --background: 220 10% 97%;
-  --foreground: 222 50% 11%;
-  
-  --primary: 263 73% 75%;
-  --primary-foreground: 0 0% 100%;
-  
-  --secondary: 263 50% 28%;
-  --secondary-foreground: 0 0% 100%;
-  
-  --muted: 220 10% 94%;
-  --muted-foreground: 215 20% 40%;
-  
-  --accent: 263 30% 90%;
-  --accent-foreground: 222 50% 11%;
-  
+  --background: 210 40% 98%;
+  --foreground: 216 50% 12%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 216 50% 12%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 216 50% 12%;
+
+  --primary: 215 80% 30%;
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 199 92% 26%;
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 214 32% 94%;
+  --muted-foreground: 215 18% 42%;
+
+  --accent: 212 45% 93%;
+  --accent-foreground: 216 50% 12%;
+
   --destructive: 0 62% 50%;
   --destructive-foreground: 0 0% 100%;
-  
-  --border: 215 30% 86%;
-  --input: 215 30% 86%;
-  --ring: 263 73% 75%;
-  
+
+  --border: 214 25% 87%;
+  --input: 214 25% 84%;
+  --ring: 215 80% 40%;
+
   --radius: 0.75rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'liga' 1, 'kern' 1;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.18);
+  }
+
+  h1, h2, h3, h4 {
+    @apply tracking-tight;
+  }
+}
+
+@layer utilities {
+  .bg-grid-hero {
+    background-image:
+      linear-gradient(to right, hsl(var(--foreground) / 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--foreground) / 0.035) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: radial-gradient(ellipse 90% 80% at 50% 20%, black 35%, transparent 78%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 20%, black 35%, transparent 78%);
+  }
+
+  .bg-glow-primary {
+    background: radial-gradient(closest-side, hsl(var(--primary) / 0.12), transparent);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
 }

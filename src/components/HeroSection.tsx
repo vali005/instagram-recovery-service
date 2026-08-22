@@ -2,6 +2,13 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import SecurityVisual from '@/components/SecurityVisual';
+
+const HERO_TRUST_ITEMS = [
+  { icon: 'LockKeyhole', label: 'Конфиденциально' },
+  { icon: 'SearchCheck', label: 'Честная оценка вашей ситуации' },
+  { icon: 'MessagesSquare', label: 'На связи на каждом этапе' },
+];
 
 const HeroSection = () => {
   const scrollToContact = () => {
@@ -10,62 +17,63 @@ const HeroSection = () => {
       contactSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
-  
+
   const openInstagram = () => {
     window.open('https://www.instagram.com/ziyava_unlocking', '_blank');
   };
 
   return (
-    <section className="py-12 md:py-20 px-4 bg-gradient-to-br from-accent to-background relative overflow-hidden">
-      <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        <div className="space-y-6">
-          <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full">
-            <Icon name="ShieldCheck" className="h-4 w-4 text-primary" />
-            <span className="text-sm font-medium text-secondary">Профессиональная помощь</span>
-          </div>
-          
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-            Восстановление и<br /> разблокировка
-            <span className="text-primary"> Instagram</span>
-          </h1>
-          
-          <p className="text-lg text-muted-foreground">
-            Помогаю вернуть доступ к вашему аккаунту, снять блокировку и решить другие проблемы с вашим профилем.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button onClick={scrollToContact} size="lg" className="gap-2">
-              Получить консультацию
-              <Icon name="ArrowRight" className="h-4 w-4" />
-            </Button>
-            
-            <Button onClick={openInstagram} variant="outline" size="lg" className="gap-2">
-              <Icon name="Instagram" className="h-4 w-4" />
-              Instagram
-            </Button>
-          </div>
-          
-          <div className="flex items-center gap-4 text-sm text-muted-foreground">
-            <div className="flex items-center gap-1">
-              <Icon name="Clock" className="h-4 w-4" />
-              <span>Быстрое решение</span>
+    <section className="relative overflow-hidden">
+      <div className="absolute inset-0 bg-grid-hero pointer-events-none" aria-hidden="true" />
+      <div className="absolute -top-32 right-0 w-[480px] h-[480px] bg-glow-primary blur-3xl rounded-full pointer-events-none" aria-hidden="true" />
+
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 pt-14 pb-16 md:pt-24 md:pb-24">
+        <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-10 items-center">
+          <div className="space-y-7 animate-fade-up text-center lg:text-left">
+            <div className="inline-flex items-center gap-2 border border-border bg-card px-4 py-1.5 rounded-full shadow-card">
+              <Icon name="ShieldCheck" className="h-4 w-4 text-primary" />
+              <span className="text-sm font-medium text-secondary">
+                Профессиональная помощь с доступом к аккаунтам
+              </span>
             </div>
-            <div className="flex items-center gap-1">
-              <Icon name="Shield" className="h-4 w-4" />
-              <span>Гарантия результата</span>
+
+            <h1 className="text-balance text-4xl sm:text-5xl xl:text-6xl font-extrabold leading-[1.08]">
+              Верните доступ<br className="hidden sm:block" /> к своему{' '}
+              <span className="text-primary">аккаунту</span>
+            </h1>
+
+            <p className="mx-auto lg:mx-0 max-w-xl text-lg text-muted-foreground leading-relaxed">
+              Помогаю восстановить заблокированные, взломанные или утерянные аккаунты.
+              Разбираю вашу ситуацию, честно оцениваю перспективы и веду вас на каждом шаге —
+              в рамках правил платформы.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5">
+              <Button onClick={scrollToContact} size="lg" className="w-full sm:w-auto gap-2 shadow-cta h-12 px-8 text-base font-semibold">
+                Получить консультацию
+                <Icon name="ArrowRight" className="h-5 w-5" />
+              </Button>
+
+              <Button onClick={openInstagram} variant="outline" size="lg" className="w-full sm:w-auto gap-2 h-12 px-8 text-base font-semibold">
+                <Icon name="Instagram" className="h-5 w-5" />
+                Написать в Instagram
+              </Button>
             </div>
+
+            <ul className="pt-2 grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-3 justify-items-center lg:justify-items-start">
+              {HERO_TRUST_ITEMS.map((item) => (
+                <li key={item.label} className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
+                  <span className="flex items-center justify-center h-6 w-6 rounded-full bg-accent shrink-0">
+                    <Icon name={item.icon} className="h-3.5 w-3.5 text-primary" />
+                  </span>
+                  {item.label}
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
-        
-        <div className="relative h-[400px] hidden md:block">
-          <div className="absolute top-0 right-0 w-full h-full bg-primary/5 rounded-lg overflow-hidden">
-            <div className="absolute -bottom-10 -right-10 w-[300px] h-[300px] bg-primary/20 rounded-full"></div>
-            <div className="absolute top-20 -left-20 w-[200px] h-[200px] bg-secondary/10 rounded-full"></div>
-            <img 
-              src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" 
-              alt="Instagram на смартфоне" 
-              className="absolute inset-0 w-full h-full object-cover object-center rounded-lg opacity-90"
-            />
+
+          <div className="animate-fade-up [animation-delay:150ms] order-first lg:order-none">
+            <SecurityVisual />
           </div>
         </div>
       </div>

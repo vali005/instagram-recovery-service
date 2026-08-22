@@ -48,13 +48,61 @@ select {
   outline-offset: 3px;
 }
 
+/* Anchored sections must clear the sticky header. */
+section[id],
+main[id] {
+  scroll-margin-top: 5rem;
+}
+
+/* CSS-only entrance animation; disabled for reduced motion below. */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-rise {
+  animation: rise-in 0.6s ease-out both;
+}
+
+.animate-rise-delayed {
+  animation: rise-in 0.7s ease-out 0.12s both;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  border-radius: 9999px;
+  background: #2f80ed;
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  transition: top 0.15s ease-out;
+}
+
+.skip-link:focus-visible {
+  top: 1rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
     scroll-behavior: auto !important;
     animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .skip-link {
+    transition: none;
   }
 }

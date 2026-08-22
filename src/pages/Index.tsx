@@ -1,8 +1,8 @@
-
 import React from 'react';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import ServiceSection from '@/components/ServiceSection';
+import TrustSection from '@/components/TrustSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import { Toaster } from '@/components/ui/sonner';
@@ -15,6 +15,7 @@ const Index = () => {
       <main>
         <HeroSection />
         <ServiceSection />
+        <TrustSection />
         <ContactSection />
       </main>
       <Footer />

@@ -4,27 +4,36 @@
 @tailwind utilities;
 
 :root {
-  --background: 220 10% 97%;
-  --foreground: 222 50% 11%;
-  
-  --primary: 263 73% 75%;
-  --primary-foreground: 0 0% 100%;
-  
-  --secondary: 263 50% 28%;
-  --secondary-foreground: 0 0% 100%;
-  
-  --muted: 220 10% 94%;
-  --muted-foreground: 215 20% 40%;
-  
-  --accent: 263 30% 90%;
-  --accent-foreground: 222 50% 11%;
-  
-  --destructive: 0 62% 50%;
+  --background: 210 25% 98%;
+  --foreground: 216 30% 15%;
+
+  --primary: 214 55% 28%;
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 214 45% 20%;
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 212 20% 95%;
+  --muted-foreground: 215 14% 42%;
+
+  --accent: 211 38% 93%;
+  --accent-foreground: 216 30% 15%;
+
+  --destructive: 0 62% 45%;
   --destructive-foreground: 0 0% 100%;
-  
-  --border: 215 30% 86%;
-  --input: 215 30% 86%;
-  --ring: 263 73% 75%;
-  
+
+  --border: 213 18% 87%;
+  --input: 213 18% 84%;
+  --ring: 214 55% 32%;
+
   --radius: 0.75rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }

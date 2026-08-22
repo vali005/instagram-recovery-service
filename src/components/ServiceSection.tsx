@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ServiceCard from '@/components/ServiceCard';
 
@@ -37,16 +36,18 @@ const services = [
 
 const ServiceSection = () => {
   return (
-    <section className="py-16 px-4 bg-background" id="services">
+    <section className="py-14 md:py-20 px-4 bg-muted/60 border-y border-border/50" id="services">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Мои услуги</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Предлагаю профессиональную помощь в восстановлении и разблокировке аккаунтов Instagram, а также решение других проблем с вашими аккаунтами.
+        <div className="text-center mb-10 md:mb-14">
+          <p className="text-sm font-medium text-primary uppercase tracking-wider mb-3">Услуги</p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">С чем я помогаю</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Профессиональная помощь в восстановлении и разблокировке аккаунтов, а также решение смежных вопросов.
+            По каждой задаче сначала провожу бесплатную оценку ситуации.
           </p>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((service, index) => (
             <ServiceCard
               key={index}

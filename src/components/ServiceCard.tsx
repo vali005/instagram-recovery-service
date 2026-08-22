@@ -18,15 +18,15 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   className
 }) => {
   return (
-    <Card className={cn("transition-all duration-300 hover:shadow-lg h-full", className)}>
-      <CardHeader className="flex items-center gap-2">
-        <div className="rounded-full bg-primary/10 p-3 mb-2">
-          <Icon name={icon} className="h-6 w-6 text-primary" />
+    <Card className={cn("transition-all duration-300 hover:shadow-md hover:border-primary/30 h-full border-border/70 bg-card", className)}>
+      <CardHeader className="flex flex-col items-start gap-3">
+        <div className="rounded-md bg-accent p-2.5">
+          <Icon name={icon} className="h-5 w-5 text-primary" />
         </div>
-        <CardTitle className="text-xl font-medium">{title}</CardTitle>
+        <CardTitle className="text-lg font-semibold leading-snug">{title}</CardTitle>
       </CardHeader>
       <CardContent>
-        <CardDescription className="text-base">{description}</CardDescription>
+        <CardDescription className="text-sm leading-relaxed">{description}</CardDescription>
       </CardContent>
     </Card>
   );

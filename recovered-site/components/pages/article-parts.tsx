@@ -3,13 +3,10 @@ import {
   ArrowRight,
   ArrowUpRight,
   CircleAlert,
-  MessageCircleMore,
   ShieldCheck,
   TriangleAlert,
 } from "lucide-react";
 import { Breadcrumbs, type BreadcrumbItem } from "@/components/layout/breadcrumbs";
-
-const TELEGRAM_URL = "https://t.me/razblokirovka_instagram777";
 
 export function ArticleHero({
   tag,
@@ -187,14 +184,6 @@ export function HelpCta({ situation }: { situation: string }) {
           >
             Пройти диагностику и оставить заявку <ArrowRight size={18} aria-hidden="true" />
           </Link>
-          <a
-            href={TELEGRAM_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-6 py-3.5 font-semibold text-white transition hover:border-white/40 hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
-          >
-            <MessageCircleMore size={18} aria-hidden="true" /> Написать в Telegram
-          </a>
         </div>
         <p className="mt-5 text-sm leading-6 text-slate-400">
           Результат зависит от решения площадки и доступных способов подтверждения. Гарантий полного

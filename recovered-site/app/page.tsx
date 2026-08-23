@@ -8,6 +8,7 @@ import { GuaranteesSection } from "@/components/sections/guarantees-section";
 import { ResultsSection } from "@/components/sections/results-section";
 import { TrustSection } from "@/components/sections/trust-section";
 import { ProcessSection } from "@/components/sections/process-section";
+import { BoundariesSection } from "@/components/sections/boundaries-section";
 import { SafetyRulesSection } from "@/components/sections/safety-rules-section";
 import { FaqSection } from "@/components/sections/faq-section";
 import { RequestSection } from "@/components/sections/request-section";
@@ -71,6 +72,7 @@ export default function Home() {
             <a href="#diagnostic" className="rounded transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]">Диагностика</a>
             <a href="#services" className="rounded transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]">Услуги</a>
             <a href="#process" className="rounded transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]">Процесс</a>
+            <a href="#boundaries" className="rounded transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]">Границы помощи</a>
             <a href="#faq" className="rounded transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]">FAQ</a>
           </nav>
           <a href="#request" className="rounded-full bg-[#2F80ED] px-4 py-2.5 text-sm font-medium text-white shadow-[0_10px_35px_rgba(47,128,237,0.25)] transition hover:bg-[#1f6ed0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
@@ -90,6 +92,7 @@ export default function Home() {
         <ResultsSection />
         <TrustSection />
         <ProcessSection />
+        <BoundariesSection />
         <SafetyRulesSection />
         <FaqSection />
         <RequestSection />

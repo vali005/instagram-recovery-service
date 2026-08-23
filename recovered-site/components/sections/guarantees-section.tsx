@@ -29,9 +29,9 @@ export function GuaranteesSection() {
       <div className="mx-auto max-w-7xl">
         <div className="max-w-2xl">
           <p className="text-sm font-medium uppercase tracking-[0.25em] text-[#8BC4FF]">Принципы безопасности</p>
-          <h2 id="guarantees-title" className="mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl lg:text-4xl">
-            Что я гарантирую — это корректный процесс, а не невозможный результат.
-          </h2>
+            <h2 id="guarantees-title" className="mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl lg:text-4xl">
+              Соблюдаем понятные принципы процесса — результат за площадку обещать не можем.
+            </h2>
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">

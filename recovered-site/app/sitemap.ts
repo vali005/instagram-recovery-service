@@ -10,6 +10,7 @@ const routes: { path: string; priority: number; changeFrequency: MetadataRoute.S
   { path: "/login-code-not-arriving", priority: 0.9, changeFrequency: "monthly" },
   { path: "/account-protection-guide", priority: 0.8, changeFrequency: "monthly" },
   { path: "/knowledge-base", priority: 0.8, changeFrequency: "weekly" },
+  { path: "/privacy-policy", priority: 0.3, changeFrequency: "yearly" },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

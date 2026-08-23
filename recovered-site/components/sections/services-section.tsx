@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { services } from "@/utils/content";
 
@@ -23,9 +24,18 @@ export function ServicesSection() {
                 </div>
                 <h3 className="mt-6 text-xl font-semibold text-slate-950">{service.title}</h3>
                 <p className="mt-3 text-base leading-7 text-slate-600">{service.description}</p>
-                <a href="#request" className="mt-6 inline-flex items-center gap-2 rounded text-sm font-medium text-[#2F80ED] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2F80ED] focus-visible:ring-offset-2">
-                  Описать ситуацию <ArrowRight size={16} aria-hidden="true" className="transition group-hover:translate-x-1" />
-                </a>
+                {service.href ? (
+                  <Link
+                    href={service.href}
+                    className="mt-6 inline-flex items-center gap-2 rounded text-sm font-medium text-[#2F80ED] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2F80ED] focus-visible:ring-offset-2"
+                  >
+                    Разобрать ситуацию <ArrowRight size={16} aria-hidden="true" className="transition group-hover:translate-x-1" />
+                  </Link>
+                ) : (
+                  <a href="#request" className="mt-6 inline-flex items-center gap-2 rounded text-sm font-medium text-[#2F80ED] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2F80ED] focus-visible:ring-offset-2">
+                    Описать ситуацию <ArrowRight size={16} aria-hidden="true" className="transition group-hover:translate-x-1" />
+                  </a>
+                )}
               </article>
             );
           })}

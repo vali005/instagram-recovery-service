@@ -6,21 +6,25 @@ export const services: ServiceItem[] = [
     title: "Аккаунт заблокирован",
     description: "Разбор причины ограничения, проверка доступных апелляций и подготовка последовательности действий.",
     icon: Lock,
+    href: "/account-blocked",
   },
   {
     title: "Аккаунт взломали",
     description: "Помощь при смене почты, номера или пароля посторонним человеком и защита после возврата доступа.",
     icon: Shield,
+    href: "/account-hacked",
   },
   {
     title: "Нет доступа к почте или номеру",
     description: "Поиск подходящего официального сценария подтверждения личности и восстановления контактов.",
     icon: KeyRound,
+    href: "/no-phone-email-access",
   },
   {
     title: "Не приходит код входа",
     description: "Проверка причин, из-за которых код задерживается или не принимается, без хаотичных повторных запросов.",
     icon: SearchCheck,
+    href: "/login-code-not-arriving",
   },
   {
     title: "Удаление старого профиля",
@@ -31,6 +35,7 @@ export const services: ServiceItem[] = [
     title: "Защита после восстановления",
     description: "Настройка двухфакторной защиты, резервных контактов и понятного плана на случай повторной проблемы.",
     icon: Shield,
+    href: "/account-protection-guide",
   },
 ];
 

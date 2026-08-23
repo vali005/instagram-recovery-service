@@ -34,6 +34,25 @@ export const services: ServiceItem[] = [
   },
 ];
 
+export const diagnosticPlatforms = [
+  "Instagram",
+  "Telegram",
+  "VK",
+  "Одноклассники",
+  "Facebook",
+  "TikTok",
+  "Другая",
+];
+
+export const diagnosticSituations = [
+  "Аккаунт заблокирован",
+  "Аккаунт взломали",
+  "Нет доступа к почте или номеру",
+  "Не приходит код входа",
+  "Нужно удалить старый профиль",
+  "Нужна защита аккаунта",
+];
+
 export const platforms = [
   "Instagram",
   "Telegram",

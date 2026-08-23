@@ -1,5 +1,6 @@
+import Link from "next/link";
 import { faqs } from "@/utils/content";
-import { ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 
 export function FaqSection() {
   return (
@@ -22,6 +23,19 @@ export function FaqSection() {
               <p className="px-6 pb-6 text-base leading-8 text-slate-600">{item.answer}</p>
             </details>
           ))}
+        </div>
+
+        <div className="mt-8 rounded-[1.25rem] border border-blue-100 bg-blue-50/70 p-6 sm:flex sm:items-center sm:justify-between sm:gap-6">
+          <p className="max-w-xl text-base leading-7 text-slate-700">
+            Это короткий список. Подробные разборы ситуаций, правила безопасности и порядок работы
+            собраны в отдельном разделе базы знаний.
+          </p>
+          <Link
+            href="/knowledge-base"
+            className="mt-4 inline-flex shrink-0 items-center gap-2 rounded-full bg-[#2F80ED] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#1f6ed0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2F80ED] focus-visible:ring-offset-2 sm:mt-0"
+          >
+            Открыть базу знаний <ArrowRight size={16} aria-hidden="true" />
+          </Link>
         </div>
       </div>
     </section>

@@ -1,5 +1,15 @@
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { contactChannels } from "@/utils/content";
+
+const materialLinks = [
+  { label: "Аккаунт заблокирован", href: "/account-blocked" },
+  { label: "Аккаунт взломан", href: "/account-hacked" },
+  { label: "Нет доступа к телефону или почте", href: "/no-phone-email-access" },
+  { label: "Не приходит код входа", href: "/login-code-not-arriving" },
+  { label: "Как защитить аккаунт", href: "/account-protection-guide" },
+  { label: "База знаний", href: "/knowledge-base" },
+];
 
 export function FooterSection() {
   return (
@@ -10,6 +20,30 @@ export function FooterSection() {
           <h2 className="mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl">Начните с безопасного описания ситуации.</h2>
           <p className="mt-4 text-base leading-8 text-slate-300">Не отправляйте пароль, SMS-коды, резервные коды и документы в первом сообщении.</p>
         </div>
+
+        <nav aria-label="Полезные материалы" className="lg:min-w-[18rem]">
+          <p className="text-sm font-medium uppercase tracking-[0.25em] text-[#8BC4FF]">Материалы</p>
+          <ul className="mt-4 space-y-2.5 text-sm">
+            {materialLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="rounded text-slate-300 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link
+                href="/#diagnostic"
+                className="rounded text-slate-300 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]"
+              >
+                Диагностика ситуации
+              </Link>
+            </li>
+          </ul>
+        </nav>
 
         <ul className="grid gap-4 sm:grid-cols-2 lg:min-w-[26rem]">
           {contactChannels.map((channel) => {

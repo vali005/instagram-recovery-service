@@ -1,4 +1,5 @@
-import { Ban, KeyRound, ShieldCheck } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Ban, KeyRound, ShieldCheck } from "lucide-react";
 
 const rules = [
   {
@@ -42,6 +43,19 @@ export function SafetyRulesSection() {
               </article>
             );
           })}
+        </div>
+
+        <div className="mt-8 flex flex-col items-start gap-4 rounded-[1.25rem] border border-slate-200 bg-white/80 p-6 backdrop-blur-xl sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+          <p className="max-w-xl text-base leading-7 text-slate-700">
+            Хотите закрепить результат? В пошаговом руководстве собраны настройки защиты, которые
+            снижают риск повторной потери доступа.
+          </p>
+          <Link
+            href="/account-protection-guide"
+            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#2F80ED] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#1f6ed0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2F80ED] focus-visible:ring-offset-2"
+          >
+            Руководство по защите <ArrowRight size={16} aria-hidden="true" />
+          </Link>
         </div>
       </div>
     </section>

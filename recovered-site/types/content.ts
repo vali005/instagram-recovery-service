@@ -4,6 +4,7 @@ export interface ServiceItem {
   title: string;
   description: string;
   icon: LucideIcon;
+  href?: string;
 }
 
 export interface BenefitItem {

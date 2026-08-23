@@ -23,12 +23,12 @@ export function FooterSection() {
 
         <nav aria-label="Полезные материалы" className="lg:min-w-[18rem]">
           <p className="text-sm font-medium uppercase tracking-[0.25em] text-[#8BC4FF]">Материалы</p>
-          <ul className="mt-4 space-y-2.5 text-sm">
+          <ul className="mt-3 space-y-1 text-sm">
             {materialLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="rounded text-slate-300 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]"
+                  className="block rounded px-2 py-1.5 text-slate-300 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]"
                 >
                   {link.label}
                 </Link>
@@ -37,7 +37,7 @@ export function FooterSection() {
             <li>
               <Link
                 href="/#diagnostic"
-                className="rounded text-slate-300 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]"
+                className="block rounded px-2 py-1.5 text-slate-300 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]"
               >
                 Диагностика ситуации
               </Link>
@@ -76,7 +76,7 @@ export function FooterSection() {
         <div className="lg:text-right">
           <Link
             href="/privacy-policy"
-            className="rounded font-medium text-slate-300 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]"
+            className="inline-block rounded p-2 -m-2 font-medium text-slate-300 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]"
           >
             Политика конфиденциальности
           </Link>

@@ -24,7 +24,7 @@ export function SafetyRulesSection() {
     <section aria-labelledby="safety-rules-title" className="px-6 py-20 sm:px-8 sm:py-24 lg:px-12">
       <div className="mx-auto max-w-7xl">
         <div className="max-w-2xl">
-          <p className="text-sm font-medium uppercase tracking-[0.25em] text-[#2F80ED]">Важно знать</p>
+          <p className="text-sm font-medium uppercase tracking-[0.25em] text-[#1D63C9]">Важно знать</p>
           <h2 id="safety-rules-title" className="mt-3 text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl lg:text-4xl">
             Три правила, которые защищают вас от повторного взлома.
           </h2>
@@ -35,7 +35,7 @@ export function SafetyRulesSection() {
             const Icon = item.icon;
             return (
               <article key={item.title} className="rounded-[1.5rem] border border-slate-200 bg-white/80 p-7 shadow-[0_20px_70px_rgba(15,23,42,0.06)] backdrop-blur-xl">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2F80ED]/10 text-[#2F80ED]">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2F80ED]/10 text-[#1D63C9]">
                   <Icon size={21} aria-hidden="true" />
                 </div>
                 <h3 className="mt-5 text-xl font-semibold text-slate-950">{item.title}</h3>
@@ -52,7 +52,7 @@ export function SafetyRulesSection() {
           </p>
           <Link
             href="/account-protection-guide"
-            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#2F80ED] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#1f6ed0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2F80ED] focus-visible:ring-offset-2"
+            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#1D63C9] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#164F9F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2F80ED] focus-visible:ring-offset-2"
           >
             Руководство по защите <ArrowRight size={16} aria-hidden="true" />
           </Link>

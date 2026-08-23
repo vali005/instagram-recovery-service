@@ -7,7 +7,7 @@ export function BoundariesSection() {
     <section id="boundaries" aria-labelledby="boundaries-title" className="px-6 py-20 sm:px-8 sm:py-24 lg:px-12">
       <div className="mx-auto max-w-7xl">
         <div className="max-w-2xl">
-          <p className="text-sm font-medium uppercase tracking-[0.25em] text-[#2F80ED]">Границы помощи</p>
+          <p className="text-sm font-medium uppercase tracking-[0.25em] text-[#1D63C9]">Границы помощи</p>
           <h2 id="boundaries-title" className="mt-3 text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl lg:text-4xl">
             Чем можем и чем не можем помочь.
           </h2>
@@ -56,7 +56,7 @@ export function BoundariesSection() {
           </p>
           <Link
             href="/knowledge-base"
-            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#2F80ED] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#1f6ed0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2F80ED] focus-visible:ring-offset-2"
+            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#1D63C9] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#164F9F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2F80ED] focus-visible:ring-offset-2"
           >
             Подробнее в базе знаний <ArrowRight size={16} aria-hidden="true" />
           </Link>

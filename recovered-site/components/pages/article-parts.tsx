@@ -70,7 +70,7 @@ export function StepsBlock({
           >
             <span
               aria-hidden="true"
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#2F80ED]/10 text-sm font-semibold text-[#2F80ED]"
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#2F80ED]/10 text-sm font-semibold text-[#1D63C9]"
             >
               {index + 1}
             </span>
@@ -180,7 +180,7 @@ export function HelpCta({ situation }: { situation: string }) {
         <div className="mt-7 flex flex-col gap-3 sm:flex-row">
           <Link
             href="/#request"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#2F80ED] px-6 py-3.5 font-semibold text-white shadow-[0_12px_40px_rgba(47,128,237,0.3)] transition hover:bg-[#1f6ed0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#1D63C9] px-6 py-3.5 font-semibold text-white shadow-[0_12px_40px_rgba(47,128,237,0.3)] transition hover:bg-[#164F9F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
           >
             Пройти диагностику и оставить заявку <ArrowRight size={18} aria-hidden="true" />
           </Link>
@@ -216,7 +216,7 @@ export function RelatedMaterials({ items }: { items: RelatedItem[] }) {
                 {item.external ? (
                   <ArrowUpRight size={18} aria-hidden="true" className="mt-1 shrink-0 text-slate-400" />
                 ) : (
-                  <ArrowRight size={18} aria-hidden="true" className="mt-1 shrink-0 text-[#2F80ED]" />
+                  <ArrowRight size={18} aria-hidden="true" className="mt-1 shrink-0 text-[#1D63C9]" />
                 )}
               </span>
               <span className="mt-2 block text-base leading-7 text-slate-600">{item.description}</span>

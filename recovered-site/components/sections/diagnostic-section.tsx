@@ -41,10 +41,19 @@ export function DiagnosticSection() {
     setStep(Math.min(Math.max(nextStep, 1), TOTAL_STEPS));
   }
 
+  function prefersReducedMotion() {
+    return (
+      typeof window.matchMedia === "function" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    );
+  }
+
   function continueToRequest() {
     sessionStorage.setItem("recoveryDiagnosis", JSON.stringify(diagnosis));
     window.dispatchEvent(new CustomEvent("recovery:diagnosis", { detail: diagnosis }));
-    document.getElementById("request")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("request")?.scrollIntoView({
+      behavior: prefersReducedMotion() ? "auto" : "smooth",
+    });
   }
 
   const guidance = getSituationGuidance(situation);
@@ -54,7 +63,7 @@ export function DiagnosticSection() {
       <div className="mx-auto max-w-6xl rounded-[2rem] border border-slate-200/80 bg-white p-6 text-slate-950 shadow-[0_30px_100px_rgba(3,7,18,0.16)] sm:p-9 lg:p-10">
         <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
-            <p className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-[#2F80ED]">
+            <p className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-[#1D63C9]">
               <SearchCheck size={17} aria-hidden="true" /> Диагностика
             </p>
             <h2 id="diagnostic-title" className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
@@ -84,14 +93,14 @@ export function DiagnosticSection() {
                       ? "border-[#2F80ED] bg-blue-50 font-semibold text-blue-900"
                       : isDone
                         ? "border-emerald-200 bg-emerald-50 text-emerald-900"
-                        : "border-slate-200 bg-slate-50 text-slate-500"
+                        : "border-slate-200 bg-slate-50 text-slate-600"
                   }`}
                 >
                   <span
                     aria-hidden="true"
                     className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-semibold ${
                       isCurrent
-                        ? "bg-[#2F80ED] text-white"
+                        ? "bg-[#1D63C9] text-white"
                         : isDone
                           ? "bg-emerald-500 text-white"
                           : "bg-slate-200 text-slate-600"
@@ -133,7 +142,7 @@ export function DiagnosticSection() {
                     }}
                     className="peer sr-only"
                   />
-                  <span className={`inline-block rounded-full border px-4 py-2.5 text-sm font-medium transition peer-checked:border-[#2F80ED] peer-checked:bg-[#2F80ED] peer-checked:text-white peer-checked:shadow-md peer-checked:shadow-blue-200 hover:border-blue-300 hover:bg-blue-50 ${platform === item ? "border-[#2F80ED] bg-[#2F80ED] text-white shadow-md shadow-blue-200" : "border-slate-200 bg-slate-50 text-slate-700"} peer-focus-visible:outline-none peer-focus-visible:ring-2 peer-focus-visible:ring-[#2F80ED] peer-focus-visible:ring-offset-2`}>
+                  <span className={`inline-block rounded-full border px-4 py-2.5 text-sm font-medium transition peer-checked:border-[#2F80ED] peer-checked:bg-[#1D63C9] peer-checked:text-white peer-checked:shadow-md peer-checked:shadow-blue-200 hover:border-blue-300 hover:bg-blue-50 ${platform === item ? "border-[#2F80ED] bg-[#1D63C9] text-white shadow-md shadow-blue-200" : "border-slate-200 bg-slate-50 text-slate-700"} peer-focus-visible:outline-none peer-focus-visible:ring-2 peer-focus-visible:ring-[#2F80ED] peer-focus-visible:ring-offset-2`}>
                     {item}
                   </span>
                 </label>
@@ -170,11 +179,11 @@ export function DiagnosticSection() {
             </h3>
             <dl className="mt-3 grid gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm sm:grid-cols-2">
               <div>
-                <dt className="font-medium text-slate-500">Площадка</dt>
+                <dt className="font-medium text-slate-600">Площадка</dt>
                 <dd data-testid="summary-platform" className="mt-1 font-semibold text-slate-900">{platform || "—"}</dd>
               </div>
               <div>
-                <dt className="font-medium text-slate-500">Ситуация</dt>
+                <dt className="font-medium text-slate-600">Ситуация</dt>
                 <dd data-testid="summary-situation" className="mt-1 font-semibold text-slate-900">{situation || "—"}</dd>
               </div>
             </dl>
@@ -185,12 +194,12 @@ export function DiagnosticSection() {
               <p className="mt-2">{guidance.advice}</p>
               <Link
                 href={guidance.href}
-                className="mt-3 inline-flex items-center gap-2 rounded font-semibold text-[#2F80ED] hover:text-[#1f6ed0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2F80ED] focus-visible:ring-offset-2"
+                className="mt-3 inline-flex items-center gap-2 rounded font-semibold text-[#1D63C9] hover:text-[#164F9F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2F80ED] focus-visible:ring-offset-2"
               >
                 {guidance.label} <ArrowRight size={15} aria-hidden="true" />
               </Link>
             </div>
-            <p className="mt-3 text-xs leading-5 text-slate-500">
+            <p className="mt-3 text-xs leading-5 text-slate-600">
               Ответы хранятся только в этом браузере. На следующем шаге вы сами решите, что отправить.
             </p>
           </div>
@@ -219,7 +228,7 @@ export function DiagnosticSection() {
                 onClick={() => goToStep(step + 1)}
                 disabled={!canContinue}
                 data-testid="diagnostic-next"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#2F80ED] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#1f6ed0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2F80ED] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:bg-slate-300"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#1D63C9] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#164F9F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2F80ED] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:bg-slate-300"
               >
                 Далее <ArrowRight size={17} aria-hidden="true" />
               </button>
@@ -229,7 +238,7 @@ export function DiagnosticSection() {
                 onClick={continueToRequest}
                 disabled={!ready}
                 data-testid="diagnostic-submit"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#2F80ED] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#1f6ed0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2F80ED] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:bg-slate-300"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#1D63C9] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#164F9F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2F80ED] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:bg-slate-300"
               >
                 Перейти к заявке <ArrowRight size={17} aria-hidden="true" />
               </button>

@@ -25,12 +25,12 @@ export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
               <Link
                 href={item.href}
                 itemProp="item"
-                className="rounded transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]"
+                className="inline-block rounded px-1 py-1 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]"
               >
                 <span itemProp="name">{item.label}</span>
               </Link>
             ) : (
-              <span aria-current="page" className="text-slate-400">
+              <span aria-current="page" className="inline-block px-1 py-1 text-slate-400">
                 <span itemProp="name">{item.label}</span>
               </span>
             )}

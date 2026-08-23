@@ -73,7 +73,15 @@ export function FooterSection() {
 
       <div id="privacy" className="mx-auto mt-12 grid max-w-7xl gap-6 border-t border-white/10 pt-8 text-sm text-slate-400 lg:grid-cols-[1fr_1.5fr]">
         <p>© 2026 Recovery. Информационная помощь по восстановлению доступа.</p>
-        <p className="leading-6 lg:text-right">Сервис не аффилирован с Instagram, Telegram, VK, Meta Platforms и другими перечисленными площадками. Результат зависит от решения соответствующей платформы и доступных способов подтверждения владельца.</p>
+        <div className="lg:text-right">
+          <Link
+            href="/privacy-policy"
+            className="rounded font-medium text-slate-300 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]"
+          >
+            Политика конфиденциальности
+          </Link>
+          <p className="mt-2 leading-6">Сервис не аффилирован с Instagram, Telegram, VK, Meta Platforms и другими перечисленными площадками. Результат зависит от решения соответствующей платформы и доступных способов подтверждения владельца.</p>
+        </div>
       </div>
     </footer>
   );

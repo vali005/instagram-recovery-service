@@ -75,13 +75,32 @@ export default function Home() {
             <a href="#boundaries" className="rounded transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]">Границы помощи</a>
             <a href="#faq" className="rounded transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]">FAQ</a>
           </nav>
-          <a href="#request" className="rounded-full bg-[#2F80ED] px-4 py-2.5 text-sm font-medium text-white shadow-[0_10px_35px_rgba(47,128,237,0.25)] transition hover:bg-[#1f6ed0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
+          <a href="#request" className="rounded-full bg-[#1D63C9] px-4 py-2.5 text-sm font-medium text-white shadow-[0_10px_35px_rgba(47,128,237,0.25)] transition hover:bg-[#164F9F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
             Описать ситуацию
           </a>
         </div>
+        <nav aria-label="Навигация по разделам" className="border-t border-white/5 lg:hidden">
+          <div className="mx-auto flex max-w-7xl flex-wrap gap-x-1 gap-y-1 px-4 pb-3 pt-2 text-sm sm:px-6">
+            {[
+              { label: "Диагностика", href: "#diagnostic" },
+              { label: "Услуги", href: "#services" },
+              { label: "Процесс", href: "#process" },
+              { label: "Границы помощи", href: "#boundaries" },
+              { label: "FAQ", href: "#faq" },
+            ].map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="rounded px-2 py-2 text-slate-300 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </nav>
       </header>
 
-      <main id="main-content" className="focus-visible:outline-none">
+      <main id="main-content" tabIndex={-1} className="focus-visible:outline-none">
         <HeroSection />
         <DiagnosticSection />
         <ServicesSection />

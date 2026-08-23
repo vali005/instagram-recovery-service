@@ -178,7 +178,7 @@ export function RequestSection() {
                       href={TELEGRAM_URL}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center justify-center gap-2 rounded-full bg-[#2F80ED] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#1f6ed0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+                      className="inline-flex items-center justify-center gap-2 rounded-full bg-[#1D63C9] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#164F9F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
                     >
                       <MessageCircleMore size={16} aria-hidden="true" /> Открыть Telegram и отправить самому
                     </a>
@@ -235,7 +235,7 @@ export function RequestSection() {
                       onChange={(event) => updateField("description", event.target.value)}
                       aria-describedby={secretsWarningId}
                       placeholder="Что произошло, когда пропал доступ, какие способы подтверждения остались."
-                      className="w-full rounded-2xl border border-white/10 bg-slate-950/75 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus-visible:border-[#8BC4FF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]"
+                      className="w-full rounded-2xl border border-white/10 bg-slate-950/75 px-4 py-3 text-white outline-none transition placeholder:text-slate-400 focus-visible:border-[#8BC4FF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]"
                     />
                   </label>
 
@@ -250,7 +250,7 @@ export function RequestSection() {
                       value={draft.contact}
                       onChange={(event) => updateField("contact", event.target.value)}
                       placeholder="Например: ник в Telegram для ответа"
-                      className="w-full rounded-2xl border border-white/10 bg-slate-950/75 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus-visible:border-[#8BC4FF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]"
+                      className="w-full rounded-2xl border border-white/10 bg-slate-950/75 px-4 py-3 text-white outline-none transition placeholder:text-slate-400 focus-visible:border-[#8BC4FF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]"
                     />
                   </label>
 
@@ -272,7 +272,7 @@ export function RequestSection() {
                       checked={draft.consent}
                       onChange={(event) => updateField("consent", event.target.checked)}
                       aria-describedby={statusId}
-                      className="mt-1 h-4 w-4 shrink-0 rounded border-white/30 accent-[#2F80ED]"
+                      className="mt-1 h-4 w-4 shrink-0 rounded border-white/30 accent-[#1D63C9]"
                     />
                     <label htmlFor={consentId}>
                       Я согласен на обработку введённых мной данных для ответа на обращение. Условия описаны в{" "}
@@ -290,7 +290,7 @@ export function RequestSection() {
                     type="submit"
                     disabled={submitDisabled}
                     data-testid="request-submit"
-                    className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#2F80ED] px-6 py-3.5 font-semibold text-white shadow-[0_12px_40px_rgba(47,128,237,0.3)] transition hover:bg-[#1f6ed0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 disabled:cursor-not-allowed disabled:bg-slate-600 disabled:shadow-none"
+                    className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#1D63C9] px-6 py-3.5 font-semibold text-white shadow-[0_12px_40px_rgba(47,128,237,0.3)] transition hover:bg-[#164F9F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 disabled:cursor-not-allowed disabled:bg-slate-600 disabled:shadow-none"
                   >
                     <MessageCircleMore size={19} aria-hidden="true" />
                     {isChecking ? "Проверяем данные…" : "Подготовить обращение"}

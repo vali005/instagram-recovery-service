@@ -141,19 +141,19 @@ export default function PrivacyPolicyPage() {
               </h2>
               <ul className="mt-4 space-y-3 text-base leading-7 text-slate-600">
                 <li className="flex gap-3">
-                  <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#2F80ED]" />
+                  <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#1D63C9]" />
                   На сайте пока не настроен защищённый серверный канал приёма заявок, поэтому автоматическая
                   внешняя отправка данных не предусмотрена: сайт показывает подготовленное обращение
                   и оставляет отправку за вами.
                 </li>
                 <li className="flex gap-3">
-                  <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#2F80ED]" />
+                  <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#1D63C9]" />
                   Мы не утверждаем, что введённые данные хранятся на наших серверах, шифруются,
                   удаляются по расписанию или никогда не попадают третьим лицам: соответствующей
                   инфраструктуры у сайта нет, а передача зависит от выбранного вами канала связи.
                 </li>
                 <li className="flex gap-3">
-                  <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#2F80ED]" />
+                  <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#1D63C9]" />
                   Черновик обращения и выбранные ответы диагностики сохраняются только в памяти вашего
                   браузера. Вы можете удалить их, закрыв страницу или очистив данные сайта.
                 </li>
@@ -182,7 +182,7 @@ export default function PrivacyPolicyPage() {
               </p>
               <Link
                 href="/knowledge-base"
-                className="mt-4 inline-flex items-center gap-2 rounded font-semibold text-[#2F80ED] hover:text-[#1f6ed0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2F80ED] focus-visible:ring-offset-2"
+                className="mt-4 inline-flex items-center gap-2 rounded font-semibold text-[#1D63C9] hover:text-[#164F9F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2F80ED] focus-visible:ring-offset-2"
               >
                 Смежные вопросы в базе знаний <span aria-hidden="true">→</span>
               </Link>

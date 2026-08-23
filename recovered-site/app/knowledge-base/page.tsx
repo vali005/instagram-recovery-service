@@ -216,7 +216,7 @@ export default function KnowledgeBasePage() {
                         <ChevronDown
                           size={20}
                           aria-hidden="true"
-                          className="shrink-0 text-[#2F80ED] transition group-open:rotate-180"
+                          className="shrink-0 text-[#1D63C9] transition group-open:rotate-180"
                         />
                       </summary>
                       <div className="px-5 pb-5 sm:px-6 sm:pb-6">
@@ -224,7 +224,7 @@ export default function KnowledgeBasePage() {
                         {entry.link ? (
                           <Link
                             href={entry.link.href}
-                            className="mt-3 inline-flex items-center gap-2 rounded text-sm font-semibold text-[#2F80ED] hover:text-[#1f6ed0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2F80ED] focus-visible:ring-offset-2"
+                            className="mt-3 inline-flex items-center gap-2 rounded text-sm font-semibold text-[#1D63C9] hover:text-[#164F9F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2F80ED] focus-visible:ring-offset-2"
                           >
                             {entry.link.label}
                             <span aria-hidden="true">→</span>

@@ -18,6 +18,10 @@
 
 html {
   scroll-behavior: smooth;
+  /* Guard against accidental horizontal page scroll on narrow screens.
+     "clip" (unlike "hidden") does not create a scroll container, so the
+     sticky header keeps working. */
+  overflow-x: clip;
 }
 
 body {

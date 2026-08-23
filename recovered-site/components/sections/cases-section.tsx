@@ -26,7 +26,7 @@ export function CasesSection() {
     <section aria-labelledby="cases-title" className="px-6 py-20 sm:px-8 sm:py-24 lg:px-12">
       <div className="mx-auto max-w-7xl rounded-[2rem] border border-slate-200 bg-white/80 p-8 shadow-[0_20px_80px_rgba(3,7,18,0.06)] backdrop-blur-xl sm:p-10 lg:p-12">
         <div className="max-w-3xl">
-          <p className="text-sm font-medium uppercase tracking-[0.25em] text-[#2F80ED]">Типовые сценарии</p>
+          <p className="text-sm font-medium uppercase tracking-[0.25em] text-[#1D63C9]">Типовые сценарии</p>
           <h2 id="cases-title" className="mt-3 text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl lg:text-4xl">
             Что важно сделать в первые минуты.
           </h2>

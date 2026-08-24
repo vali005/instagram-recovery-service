@@ -10,7 +10,7 @@ import {
   StepsBlock,
   TextBlock,
 } from "@/components/pages/article-parts";
-import { SITE_URL } from "@/utils/site";
+import { SITE_URL, openGraphMetadata } from "@/utils/site";
 
 export const metadata: Metadata = {
   title: "Не приходит код входа — причины и безопасные действия",
@@ -19,13 +19,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/login-code-not-arriving",
   },
-  openGraph: {
+  openGraph: openGraphMetadata({
     title: "Не приходит код входа — что делать и почему так происходит",
     description:
       "Почему коды подтверждения задерживаются или не доходят, и какие действия безопасны.",
     url: "/login-code-not-arriving",
-    type: "article",
-  },
+  }),
 };
 
 const schema = {

@@ -57,7 +57,7 @@ const schema = {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#030712] text-slate-50">
+    <div id="top" className="min-h-screen bg-[#030712] text-slate-50">
       <a href="#main-content" className="skip-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white">
         Перейти к основному содержанию
       </a>

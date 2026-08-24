@@ -10,7 +10,7 @@ import {
   StepsBlock,
   TextBlock,
 } from "@/components/pages/article-parts";
-import { SITE_URL } from "@/utils/site";
+import { SITE_URL, openGraphMetadata } from "@/utils/site";
 
 export const metadata: Metadata = {
   title: "Аккаунт заблокирован — что делать и каких действий избегать",
@@ -19,13 +19,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/account-blocked",
   },
-  openGraph: {
+  openGraph: openGraphMetadata({
     title: "Аккаунт заблокирован — безопасный порядок действий",
     description:
       "Почему аккаунты блокируют, с чего начать разбор, чего делать нельзя и когда обращаться за помощью.",
     url: "/account-blocked",
-    type: "article",
-  },
+  }),
 };
 
 const schema = {

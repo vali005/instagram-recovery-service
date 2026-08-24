@@ -10,7 +10,7 @@ import {
   StepsBlock,
   TextBlock,
 } from "@/components/pages/article-parts";
-import { SITE_URL } from "@/utils/site";
+import { SITE_URL, openGraphMetadata } from "@/utils/site";
 
 export const metadata: Metadata = {
   title: "Как защитить аккаунт — практическое руководство по безопасности",
@@ -19,13 +19,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/account-protection-guide",
   },
-  openGraph: {
+  openGraph: openGraphMetadata({
     title: "Как защитить аккаунт — практическое руководство",
     description:
       "Восемь шагов защиты аккаунта и список того, каких предложений остерегаться.",
     url: "/account-protection-guide",
-    type: "article",
-  },
+  }),
 };
 
 const guideSteps = [

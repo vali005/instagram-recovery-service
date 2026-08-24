@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /_vinext/
 
 Sitemap: https://recovered-social-recovery.ppnt2qf6z9.chatgpt.site/sitemap.xml

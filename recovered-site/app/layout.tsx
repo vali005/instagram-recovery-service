@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { defaultOgImage } from "@/utils/site";
 
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
@@ -33,16 +34,9 @@ export const metadata: Metadata = {
     title: "Разблокировка и восстановление аккаунтов социальных сетей",
     description:
       "Помощь при блокировке, взломе и потере доступа. Без паролей, SMS-кодов и сомнительных методов.",
-    url: "https://recovered-social-recovery.ppnt2qf6z9.chatgpt.site",
+    url: "/",
     siteName: "Recovery",
-    images: [
-      {
-        url: "/og-image.svg",
-        width: 1200,
-        height: 630,
-        alt: "Recovery — безопасная помощь в восстановлении доступа к аккаунтам",
-      },
-    ],
+    images: [defaultOgImage],
     locale: "ru_RU",
     type: "website",
   },
@@ -51,7 +45,7 @@ export const metadata: Metadata = {
     title: "Разблокировка и восстановление аккаунтов",
     description:
       "Безопасная диагностика и помощь с восстановлением доступа к аккаунтам.",
-    images: ["/og-image.svg"],
+    images: [defaultOgImage.url],
   },
   icons: {
     icon: [

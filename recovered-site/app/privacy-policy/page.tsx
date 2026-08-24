@@ -3,7 +3,7 @@ import Link from "next/link";
 import { SubpageFrame } from "@/components/layout/subpage-frame";
 import { JsonLd } from "@/components/layout/json-ld";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
-import { SITE_URL } from "@/utils/site";
+import { SITE_URL, openGraphMetadata } from "@/utils/site";
 
 export const metadata: Metadata = {
   title: "Политика конфиденциальности",
@@ -12,13 +12,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/privacy-policy",
   },
-  openGraph: {
+  openGraph: openGraphMetadata({
     title: "Политика конфиденциальности — Recovery",
     description:
       "Честное описание данных, которые вводит пользователь, целей их обработки и ограничений сайта.",
     url: "/privacy-policy",
-    type: "article",
-  },
+  }),
 };
 
 const schema = {

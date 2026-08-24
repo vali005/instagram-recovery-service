@@ -10,7 +10,7 @@ import {
   StepsBlock,
   TextBlock,
 } from "@/components/pages/article-parts";
-import { SITE_URL } from "@/utils/site";
+import { SITE_URL, openGraphMetadata } from "@/utils/site";
 
 export const metadata: Metadata = {
   title: "Нет доступа к телефону или почте — как восстановить вход в аккаунт",
@@ -19,13 +19,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/no-phone-email-access",
   },
-  openGraph: {
+  openGraph: openGraphMetadata({
     title: "Нет доступа к телефону или почте — порядок восстановления входа",
     description:
       "Как вернуть доступ к аккаунту, когда привязанные телефон и почта больше недоступны.",
     url: "/no-phone-email-access",
-    type: "article",
-  },
+  }),
 };
 
 const schema = {

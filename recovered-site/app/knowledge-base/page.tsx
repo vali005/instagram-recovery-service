@@ -5,7 +5,7 @@ import { SubpageFrame } from "@/components/layout/subpage-frame";
 import { JsonLd } from "@/components/layout/json-ld";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { RelatedMaterials } from "@/components/pages/article-parts";
-import { SITE_URL } from "@/utils/site";
+import { SITE_URL, openGraphMetadata } from "@/utils/site";
 
 export const metadata: Metadata = {
   title: "База знаний — вопросы о восстановлении доступа к аккаунтам",
@@ -14,13 +14,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/knowledge-base",
   },
-  openGraph: {
+  openGraph: openGraphMetadata({
     title: "База знаний Recovery — ответы о восстановлении доступа",
     description:
       "Типовые ситуации, безопасность данных, границы помощи и порядок работы — собраны в одном разделе.",
     url: "/knowledge-base",
-    type: "article",
-  },
+  }),
 };
 
 interface KnowledgeEntry {

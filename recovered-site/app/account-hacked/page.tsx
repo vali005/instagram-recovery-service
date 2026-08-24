@@ -10,7 +10,7 @@ import {
   StepsBlock,
   TextBlock,
 } from "@/components/pages/article-parts";
-import { SITE_URL } from "@/utils/site";
+import { SITE_URL, openGraphMetadata } from "@/utils/site";
 
 export const metadata: Metadata = {
   title: "Аккаунт взломан — первые шаги для безопасного возврата контроля",
@@ -19,13 +19,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/account-hacked",
   },
-  openGraph: {
+  openGraph: openGraphMetadata({
     title: "Аккаунт взломан — что делать в первую очередь",
     description:
       "Как распознать взлом, какие шаги предпринять сразу и чего делать категорически не стоит.",
     url: "/account-hacked",
-    type: "article",
-  },
+  }),
 };
 
 const schema = {

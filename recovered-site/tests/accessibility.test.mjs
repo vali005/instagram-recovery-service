@@ -161,6 +161,9 @@ test("mobile navigation to key sections stays available next to the CTA", async 
     assert.ok(mobileNav, `${route} should render the section navigation`);
     const links = [...mobileNav[1].matchAll(/<a\b[^>]*href=["'][^"']+["']/gi)];
     assert.ok(links.length >= 3, `${route} section navigation should expose several targets`);
+    const compactMenu = html.match(/<details[^>]*data-testid=["']mobile-menu["'][^>]*>/i);
+    assert.ok(compactMenu, `${route} should keep mobile navigation compact by default`);
+    assert.doesNotMatch(compactMenu[0], /\bopen\b/i, `${route} mobile menu should start collapsed`);
   }
 
   const homeHtml = await renderPage("/");

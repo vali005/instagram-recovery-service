@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { defaultOgImage } from "@/utils/site";
+import { defaultOgImage, SITE_URL } from "@/utils/site";
 
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://recovered-social-recovery.ppnt2qf6z9.chatgpt.site"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Recovery — восстановление доступа к аккаунтам",
     template: "%s | Recovery",

@@ -124,6 +124,9 @@ export function RequestSection() {
   const isError = state.status === REQUEST_STATUS.error;
   const isChecking = state.status === REQUEST_STATUS.checking;
   const submitDisabled = !draft.consent || isChecking || isSuccess;
+  const telegramDraftUrl = preparedMessage
+    ? `${TELEGRAM_URL}?text=${encodeURIComponent(preparedMessage)}`
+    : TELEGRAM_URL;
 
   return (
     <section id="request" aria-labelledby="request-title" className="px-6 py-20 sm:px-8 sm:py-24 lg:px-12">
@@ -133,16 +136,16 @@ export function RequestSection() {
             <div className="border-b border-white/10 p-8 sm:p-12 lg:border-b-0 lg:border-r lg:p-14">
               <p className="text-sm font-medium uppercase tracking-[0.25em] text-[#8BC4FF]">Следующий шаг</p>
               <h2 id="request-title" className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
-                Сформируйте понятное обращение за минуту.
+                Подготовьте безопасное обращение за минуту.
               </h2>
               <p className="mt-4 text-lg leading-8 text-slate-300">
-                Что произойдёт дальше: вы заполните короткую форму, сайт покажет итоговый текст обращения,
-                а отправите его вы сами — в удобном вам канале.
+                Ответы диагностики уже подставятся в форму. Проверьте текст и одним явным действием
+                откройте Telegram — сайт ничего не отправляет без вас.
               </p>
               <ol className="mt-8 space-y-3 text-sm leading-6 text-slate-200">
                 <li className="flex gap-3"><span aria-hidden="true" className="font-semibold text-[#8BC4FF]">1.</span> Опишите ситуацию без паролей и кодов.</li>
-                <li className="flex gap-3"><span aria-hidden="true" className="font-semibold text-[#8BC4FF]">2.</span> Проверьте состав обращения перед передачей.</li>
-                <li className="flex gap-3"><span aria-hidden="true" className="font-semibold text-[#8BC4FF]">3.</span> Отправьте текст самостоятельно — сайт ничего не пересылает автоматически.</li>
+                <li className="flex gap-3"><span aria-hidden="true" className="font-semibold text-[#8BC4FF]">2.</span> Проверьте готовый текст перед передачей.</li>
+                <li className="flex gap-3"><span aria-hidden="true" className="font-semibold text-[#8BC4FF]">3.</span> Откройте Telegram с подготовленным черновиком и отправьте его сами.</li>
               </ol>
               <ul className="mt-8 space-y-4 text-sm leading-6 text-slate-200">
                 <li className="flex gap-3"><ShieldCheck size={19} aria-hidden="true" className="mt-0.5 shrink-0 text-emerald-300" /> Чувствительные действия выполняете только вы.</li>
@@ -163,25 +166,25 @@ export function RequestSection() {
                   </p>
                   <p className="mt-3 text-sm leading-6 text-slate-200">
                     Ничего не отправлено автоматически. Ниже — точный состав ваших данных.
-                    Отправьте этот текст самостоятельно в удобном канале.
+                    Он будет передан Telegram только после вашего нажатия на кнопку ниже.
                   </p>
                   <pre data-testid="request-preview" className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-950/75 p-4 text-sm leading-6 text-slate-100">{preparedMessage}</pre>
                   <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+                    <a
+                      href={telegramDraftUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center justify-center gap-2 rounded-full bg-[#1D63C9] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#164F9F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+                    >
+                      <MessageCircleMore size={16} aria-hidden="true" /> Открыть Telegram с текстом
+                    </a>
                     <button
                       type="button"
                       onClick={copyPreparedMessage}
                       className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:border-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
                     >
-                      <Copy size={16} aria-hidden="true" /> {copied ? "Текст скопирован" : "Скопировать текст"}
+                      <Copy size={16} aria-hidden="true" /> {copied ? "Текст скопирован" : "Скопировать вместо этого"}
                     </button>
-                    <a
-                      href={TELEGRAM_URL}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center justify-center gap-2 rounded-full bg-[#1D63C9] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#164F9F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
-                    >
-                      <MessageCircleMore size={16} aria-hidden="true" /> Открыть Telegram и отправить самому
-                    </a>
                   </div>
                   <button
                     type="button"
@@ -240,16 +243,15 @@ export function RequestSection() {
                   </label>
 
                   <label htmlFor="request-contact" className="mt-4 block text-sm text-slate-200">
-                    <span className="mb-2 block">Безопасный способ связи</span>
+                    <span className="mb-2 block">Дополнительный контакт (необязательно)</span>
                     <input
                       id="request-contact"
                       name="contact"
                       type="text"
                       autoComplete="off"
-                      required
                       value={draft.contact}
                       onChange={(event) => updateField("contact", event.target.value)}
-                      placeholder="Например: ник в Telegram для ответа"
+                      placeholder="Только если ответ нужен не в Telegram"
                       className="w-full rounded-2xl border border-white/10 bg-slate-950/75 px-4 py-3 text-white outline-none transition placeholder:text-slate-400 focus-visible:border-[#8BC4FF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]"
                     />
                   </label>
@@ -275,7 +277,8 @@ export function RequestSection() {
                       className="mt-1 h-4 w-4 shrink-0 rounded border-white/30 accent-[#1D63C9]"
                     />
                     <label htmlFor={consentId}>
-                      Я согласен на обработку введённых мной данных для ответа на обращение. Условия описаны в{" "}
+                      Я понимаю, что сайт только подготовит черновик, а данные будут переданы внешнему
+                      сервису лишь после моего действия. Условия описаны в{" "}
                       <Link
                         href="/privacy-policy"
                         className="rounded font-semibold text-[#8BC4FF] underline decoration-white/30 underline-offset-4 hover:decoration-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]"
@@ -293,7 +296,7 @@ export function RequestSection() {
                     className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#1D63C9] px-6 py-3.5 font-semibold text-white shadow-[0_12px_40px_rgba(47,128,237,0.3)] transition hover:bg-[#164F9F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 disabled:cursor-not-allowed disabled:bg-slate-600 disabled:shadow-none"
                   >
                     <MessageCircleMore size={19} aria-hidden="true" />
-                    {isChecking ? "Проверяем данные…" : "Подготовить обращение"}
+                    {isChecking ? "Проверяем данные…" : "Подготовить сообщение"}
                   </button>
 
                   <div aria-live="polite" id={statusId} className="sr-only">
@@ -307,8 +310,8 @@ export function RequestSection() {
                   ) : null}
 
                   <p className="mt-4 text-center text-xs leading-5 text-slate-300">
-                    Кнопка активна только после согласия. Обращение формируется в браузере и никуда не отправляется
-                    автоматически — вы пересылаете его самостоятельно.
+                    Кнопка активна после подтверждения. Черновик формируется только в браузере;
+                    отправку в Telegram подтверждаете вы сами.
                   </p>
                 </form>
               )}

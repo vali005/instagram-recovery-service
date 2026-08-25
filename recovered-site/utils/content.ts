@@ -54,8 +54,8 @@ export const platforms = [
 
 export const benefits: BenefitItem[] = [
   {
-    title: "Конфиденциальность",
-    description: "Никто не узнает о вашей ситуации: все действия проходят с соблюдением приватности.",
+    title: "Минимум данных",
+    description: "Для первичной оценки достаточно описания ситуации. Пароли, коды и документы не запрашиваются.",
     icon: Eye,
   },
   {
@@ -221,4 +221,3 @@ export const contactChannels = [
   ...(publicPhoneHref ? [{ label: "Телефон", href: publicPhoneHref, icon: Phone }] : []),
   ...(publicEmailHref ? [{ label: "Email", href: publicEmailHref, icon: Send }] : []),
 ];
-

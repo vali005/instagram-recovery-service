@@ -128,7 +128,7 @@ const faqSchemaEntries = groups.flatMap((group) =>
     name: entry.question,
     acceptedAnswer: {
       "@type": "Answer",
-      text: entry.link ? `${entry.answer} Подробнее: ${entry.label}.` : entry.answer,
+      text: entry.link ? `${entry.answer} Подробнее: ${entry.link.label}.` : entry.answer,
     },
   })),
 );

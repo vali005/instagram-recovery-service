@@ -29,10 +29,10 @@ export function HeroSection() {
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row">
             <a href="#diagnostic" className="inline-flex items-center justify-center gap-2 rounded-full bg-[#1D63C9] px-6 py-3.5 font-medium text-white transition hover:bg-[#164F9F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
-              Пройти диагностику <ArrowRight size={18} aria-hidden="true" />
+              Начать безопасный разбор <ArrowRight size={18} aria-hidden="true" />
             </a>
             <a href="https://t.me/razblokirovka_instagram777" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/10 px-6 py-3.5 font-medium text-slate-100 backdrop-blur-xl transition hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
-              <MessageCircleMore size={18} aria-hidden="true" /> Написать в Telegram
+              <MessageCircleMore size={18} aria-hidden="true" /> Сразу написать в Telegram
             </a>
           </div>
           <ul className="mt-9 grid gap-3 text-sm text-slate-200 sm:grid-cols-3">

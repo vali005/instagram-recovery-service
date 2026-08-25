@@ -1,31 +1,24 @@
 import { HeroSection } from "@/components/sections/hero-section";
 import { DiagnosticSection } from "@/components/sections/diagnostic-section";
 import { ServicesSection } from "@/components/sections/services-section";
-import { PlatformsSection } from "@/components/sections/platforms-section";
 import { BenefitsSection } from "@/components/sections/benefits-section";
-import { CasesSection } from "@/components/sections/cases-section";
-import { GuaranteesSection } from "@/components/sections/guarantees-section";
-import { ResultsSection } from "@/components/sections/results-section";
-import { TrustSection } from "@/components/sections/trust-section";
 import { ProcessSection } from "@/components/sections/process-section";
 import { BoundariesSection } from "@/components/sections/boundaries-section";
-import { SafetyRulesSection } from "@/components/sections/safety-rules-section";
 import { FaqSection } from "@/components/sections/faq-section";
 import { RequestSection } from "@/components/sections/request-section";
 import { FooterSection } from "@/components/sections/footer-section";
 import { faqs } from "@/utils/content";
+import { SITE_URL } from "@/utils/site";
 
 const publicPhone = process.env.NEXT_PUBLIC_RECOVERY_PHONE;
 const publicEmail = process.env.NEXT_PUBLIC_RECOVERY_EMAIL;
-const siteUrl = "https://recovered-social-recovery.ppnt2qf6z9.chatgpt.site";
-
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "ProfessionalService",
       name: "Recovery",
-      url: siteUrl,
+      url: SITE_URL,
       description:
         "Профессиональная помощь в разблокировке и восстановлении аккаунтов Instagram, Telegram, VK, Facebook, TikTok и других социальных сетей.",
       ...(publicPhone ? { telephone: publicPhone } : {}),
@@ -57,7 +50,7 @@ const schema = {
 
 export default function Home() {
   return (
-    <div id="top" className="min-h-screen bg-[#030712] text-slate-50">
+    <div id="top" className="min-h-screen bg-slate-50 text-slate-950">
       <a href="#main-content" className="skip-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white">
         Перейти к основному содержанию
       </a>
@@ -75,46 +68,47 @@ export default function Home() {
             <a href="#boundaries" className="rounded transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]">Границы помощи</a>
             <a href="#faq" className="rounded transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]">FAQ</a>
           </nav>
-          <a href="#request" className="rounded-full bg-[#1D63C9] px-4 py-2.5 text-sm font-medium text-white shadow-[0_10px_35px_rgba(47,128,237,0.25)] transition hover:bg-[#164F9F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
-            Описать ситуацию
+          <a href="#diagnostic" className="rounded-full bg-[#1D63C9] px-4 py-2.5 text-sm font-medium text-white shadow-[0_10px_35px_rgba(47,128,237,0.25)] transition hover:bg-[#164F9F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
+            Начать разбор
           </a>
         </div>
-        <nav aria-label="Навигация по разделам" className="border-t border-white/5 lg:hidden">
-          <div className="mx-auto flex max-w-7xl flex-wrap gap-x-1 gap-y-1 px-4 pb-3 pt-2 text-sm sm:px-6">
-            {[
-              { label: "Диагностика", href: "#diagnostic" },
-              { label: "Услуги", href: "#services" },
-              { label: "Процесс", href: "#process" },
-              { label: "Границы помощи", href: "#boundaries" },
-              { label: "FAQ", href: "#faq" },
-            ].map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="rounded px-2 py-2 text-slate-300 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-        </nav>
+        <details data-testid="mobile-menu" className="group border-t border-white/5 lg:hidden">
+          <summary className="mx-auto flex max-w-7xl cursor-pointer list-none items-center justify-between px-6 py-2.5 text-sm font-medium text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#8BC4FF] sm:px-8 [&::-webkit-details-marker]:hidden">
+            Разделы сайта
+            <span aria-hidden="true" className="text-[#8BC4FF] transition group-open:rotate-180">⌄</span>
+          </summary>
+          <nav aria-label="Навигация по разделам" className="border-t border-white/5">
+            <div className="mx-auto grid max-w-7xl grid-cols-2 gap-1 px-4 pb-3 pt-2 text-sm sm:grid-cols-3 sm:px-6">
+              {[
+                { label: "Диагностика", href: "#diagnostic" },
+                { label: "Обращение", href: "#request" },
+                { label: "Услуги", href: "#services" },
+                { label: "Процесс", href: "#process" },
+                { label: "Границы помощи", href: "#boundaries" },
+                { label: "FAQ", href: "#faq" },
+              ].map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="rounded px-3 py-2.5 text-slate-300 transition hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </nav>
+        </details>
       </header>
 
       <main id="main-content" tabIndex={-1} className="focus-visible:outline-none">
         <HeroSection />
         <DiagnosticSection />
+        <RequestSection />
         <ServicesSection />
-        <PlatformsSection />
         <BenefitsSection />
-        <CasesSection />
-        <GuaranteesSection />
-        <ResultsSection />
-        <TrustSection />
         <ProcessSection />
         <BoundariesSection />
-        <SafetyRulesSection />
         <FaqSection />
-        <RequestSection />
       </main>
 
       <FooterSection />

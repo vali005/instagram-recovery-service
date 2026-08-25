@@ -3,7 +3,7 @@ import { readdirSync, readFileSync, existsSync } from "node:fs";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
 
-const SITE_URL = "https://recovered-social-recovery.ppnt2qf6z9.chatgpt.site";
+const SITE_URL = "https://recovery-center.ppnt2qf6z9.chatgpt.site";
 
 const canonicalRoutes = [
   "/",
@@ -363,7 +363,7 @@ test("breadcrumbs, navigation and CTA anchors point to sections that exist", () 
   for (const route of canonicalRoutes.slice(1)) {
     const html = pages.get(route);
     assert.match(html, /aria-label=["']Хлебные крошки["']/i, `${route} must label breadcrumbs`);
-    assert.match(html, /href=["']\/#request["']/, `${route} must keep the CTA to the request form`);
+    assert.match(html, /href=["']\/#diagnostic["']/, `${route} must keep the CTA to the diagnostic flow`);
   }
 });
 

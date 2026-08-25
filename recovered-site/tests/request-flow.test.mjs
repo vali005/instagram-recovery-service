@@ -73,18 +73,16 @@ test("request state machine requires explicit submit and blocks accidental resub
   assert.deepEqual(reduceRequestState(success, { type: "reset" }), createRequestState());
 });
 
-test("validation demands platform, situation, contact and consent", () => {
+test("validation demands platform, situation and explicit confirmation", () => {
   const empty = validateRequestDraft({});
   assert.ok(empty.some((message) => /площадку/i.test(message)));
   assert.ok(empty.some((message) => /ситуацию/i.test(message)));
-  assert.ok(empty.some((message) => /способ связи/i.test(message)));
   assert.ok(empty.some((message) => /согласие/i.test(message)));
 
   const complete = validateRequestDraft({
     platform: "Instagram",
     situation: "Аккаунт взломали",
     description: "",
-    contact: "@user",
     consent: true,
   });
   assert.deepEqual(complete, []);
@@ -100,8 +98,15 @@ test("composed message includes only minimal fields", () => {
   assert.match(message, /Площадка: VK/);
   assert.match(message, /Ситуация: Не приходит код входа/);
   assert.match(message, /Описание: Код не приходит вторые сутки\./);
-  assert.match(message, /Связь: @user/);
+  assert.match(message, /Дополнительный контакт: @user/);
   assert.doesNotMatch(message, /парол|password|код подтверждения|cvv/i);
+
+  const withoutContact = composeRequestMessage({
+    platform: "Telegram",
+    situation: "Аккаунт взломали",
+    description: "",
+  });
+  assert.doesNotMatch(withoutContact, /контакт|связь/i);
 });
 
 const workerUrl = new URL("../dist/server/index.js", import.meta.url);
@@ -168,6 +173,19 @@ test("wizard summary exposes a recommendation with a knowledge-base link", async
   const guidanceLink = html.match(/<a[^>]*href=["'](\/[a-z-]*)["'][^>]*>[^<]*База знаний Recovery/i);
   assert.ok(guidanceLink, "fallback guidance should link internally to the knowledge base");
   assert.equal(guidanceLink[1], "/knowledge-base");
+});
+
+test("request form follows diagnostics before long-form service content", async () => {
+  const response = await renderPage("/");
+  const html = await response.text();
+
+  const diagnosticPosition = html.indexOf('id="diagnostic"');
+  const requestPosition = html.indexOf('id="request"');
+  const servicesPosition = html.indexOf('id="services"');
+
+  assert.ok(diagnosticPosition >= 0, "diagnostic section should render");
+  assert.ok(requestPosition > diagnosticPosition, "request should follow the diagnostic result");
+  assert.ok(servicesPosition > requestPosition, "long-form service content should not delay the request");
 });
 
 test("request form requires consent, disables submission and warns about secrets", async () => {

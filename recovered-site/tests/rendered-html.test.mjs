@@ -26,6 +26,11 @@ test("renders the production Recovery page metadata", async () => {
     response.headers.get("content-type") ?? "",
     /^text\/html\b/i,
   );
+  assert.match(response.headers.get("content-security-policy") ?? "", /frame-ancestors 'none'/);
+  assert.equal(response.headers.get("x-content-type-options"), "nosniff");
+  assert.equal(response.headers.get("x-frame-options"), "DENY");
+  assert.equal(response.headers.get("referrer-policy"), "strict-origin-when-cross-origin");
+  assert.match(response.headers.get("permissions-policy") ?? "", /camera=\(\)/);
   const html = await response.text();
   assert.match(html, /<html[^>]*\blang=["']ru["']/i);
   assert.match(

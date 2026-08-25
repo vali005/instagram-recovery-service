@@ -29,11 +29,11 @@ export function ServicesSection() {
                     href={service.href}
                     className="mt-6 inline-flex items-center gap-2 rounded text-sm font-medium text-[#1D63C9] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2F80ED] focus-visible:ring-offset-2"
                   >
-                    Разобрать ситуацию <ArrowRight size={16} aria-hidden="true" className="transition group-hover:translate-x-1" />
+                    Изучить безопасные шаги <ArrowRight size={16} aria-hidden="true" className="transition group-hover:translate-x-1" />
                   </Link>
                 ) : (
-                  <a href="#request" className="mt-6 inline-flex items-center gap-2 rounded text-sm font-medium text-[#1D63C9] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2F80ED] focus-visible:ring-offset-2">
-                    Описать ситуацию <ArrowRight size={16} aria-hidden="true" className="transition group-hover:translate-x-1" />
+                  <a href="#diagnostic" className="mt-6 inline-flex items-center gap-2 rounded text-sm font-medium text-[#1D63C9] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2F80ED] focus-visible:ring-offset-2">
+                    Начать безопасный разбор <ArrowRight size={16} aria-hidden="true" className="transition group-hover:translate-x-1" />
                   </a>
                 )}
               </article>

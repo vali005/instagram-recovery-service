@@ -83,8 +83,6 @@ export function validateRequestDraft(draft) {
   const errors = [];
   if (!draft.platform) errors.push("Выберите площадку.");
   if (!draft.situation) errors.push("Выберите ситуацию.");
-  const contact = (draft.contact ?? "").trim();
-  if (!contact) errors.push("Укажите безопасный способ связи.");
   if (!draft.consent) errors.push("Подтвердите согласие на обработку введённых данных.");
   return errors;
 }
@@ -106,7 +104,8 @@ export function composeRequestMessage(draft) {
     `Площадка: ${draft.platform || "—"}`,
     `Ситуация: ${draft.situation || "—"}`,
     `Описание: ${(draft.description ?? "").trim() || "не указано"}`,
-    `Связь: ${(draft.contact ?? "").trim()}`,
   ];
+  const contact = (draft.contact ?? "").trim();
+  if (contact) lines.push(`Дополнительный контакт: ${contact}`);
   return lines.join("\n");
 }

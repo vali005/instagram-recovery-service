@@ -43,25 +43,31 @@ export function SubpageFrame({ children }: { children: React.ReactNode }) {
             ))}
           </nav>
           <Link
-            href="/#request"
+            href="/#diagnostic"
             className="rounded-full bg-[#1D63C9] px-4 py-2.5 text-sm font-medium text-white shadow-[0_10px_35px_rgba(47,128,237,0.25)] transition hover:bg-[#164F9F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
           >
-            Описать ситуацию
+            Начать разбор
           </Link>
         </div>
-        <nav aria-label="Навигация по разделам" className="border-t border-white/5 lg:hidden">
-          <div className="mx-auto flex max-w-7xl flex-wrap gap-x-1 gap-y-1 px-4 pb-3 pt-2 text-sm sm:px-6">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="rounded px-2 py-2 text-slate-300 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-        </nav>
+        <details data-testid="mobile-menu" className="group border-t border-white/5 lg:hidden">
+          <summary className="mx-auto flex max-w-7xl cursor-pointer list-none items-center justify-between px-6 py-2.5 text-sm font-medium text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#8BC4FF] sm:px-8 [&::-webkit-details-marker]:hidden">
+            Разделы сайта
+            <span aria-hidden="true" className="text-[#8BC4FF] transition group-open:rotate-180">⌄</span>
+          </summary>
+          <nav aria-label="Навигация по разделам" className="border-t border-white/5">
+            <div className="mx-auto grid max-w-7xl grid-cols-2 gap-1 px-4 pb-3 pt-2 text-sm sm:grid-cols-3 sm:px-6">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="rounded px-3 py-2.5 text-slate-300 transition hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BC4FF]"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </nav>
+        </details>
       </header>
 
       <main id="main-content" tabIndex={-1} className="focus-visible:outline-none">
